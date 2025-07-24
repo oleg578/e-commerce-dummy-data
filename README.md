@@ -15,7 +15,7 @@ This project provides a simple Python script to generate and populate an e-comme
 
 ## Prerequisites
 
-- Python 3.7+
+- Python 3.12+
 - PostgreSQL server
 - Python packages listed in `requirements.txt`
 
