@@ -1,0 +1,21 @@
+services:
+  postgres: 
+    image: postgres:17
+    container_name: shop_postgres
+    environment:
+      POSTGRES_DB: shop
+      POSTGRES_USER: shop
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./E-Commerce.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shop -d shop"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "shop-postgres-docker",
+            "group": "docker-dbs",
+            "database": "shop",
+            "username": "shop",
+            "password": "admin"
+        }
+    ]
+}
