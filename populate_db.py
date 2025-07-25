@@ -22,7 +22,7 @@ fake = Faker()
 load_dotenv()
 
 # Database connection
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgres://shop:admin@localhost:5432/shop')
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgres://shop:admin@localhost:5433/shop')
 
 # Sample data
 BRANDS = [
@@ -55,10 +55,20 @@ PRODUCT_NAMES = {
 def create_connection():
     """Create a database connection."""
     try:
+        logger.info(f"Attempting to connect to database at: {DATABASE_URL}")
         conn = psycopg2.connect(DATABASE_URL)
+        logger.info("Successfully connected to the database")
         return conn
     except Exception as e:
         logger.error(f"Error connecting to the database: {e}")
+        logger.error(f"Connection string used: {DATABASE_URL}")
+        logger.error("Please verify that:")
+        logger.error("1. PostgreSQL is running")
+        logger.error("2. The connection details in your .env file are correct")
+        logger.error("3. The database 'shop' exists and the user has proper permissions")
+        logger.error("4. The port number is correct (5433 as per your docker-compose)")
+        logger.error("5. If using Docker, the container is running (check with 'docker ps')")
+        return None
         return None
 
 def populate_brands(conn):

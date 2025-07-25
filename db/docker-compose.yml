@@ -1,5 +1,5 @@
 services:
-  postgres: 
+  postgres:
     image: postgres:17
     container_name: shop_postgres
     environment:
@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: shop
       POSTGRES_PASSWORD: admin
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./E-Commerce.sql:/docker-entrypoint-initdb.d/init.sql
