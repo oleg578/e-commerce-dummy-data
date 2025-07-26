@@ -1,3 +1,6 @@
-psycopg2-binary==2.9.9
-Faker==24.8.0
-python-dotenv==1.0.0
+pip~=25.1.1
+Faker~=24.8.0
+python-dateutil~=2.9.0.post0
+six~=1.17.0
+psycopg2-binary~=2.9.10
+python-dotenv~=1.0.0
